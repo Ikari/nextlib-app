@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
@@ -8,22 +6,22 @@ namespace NextLibApp
 {
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        BooksViewModel viewModel;
 
         public ItemsPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = viewModel = new BooksViewModel();
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
         {
-            var item = args.SelectedItem as Item;
+            var item = args.SelectedItem as Book;
             if (item == null)
                 return;
 
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+            await Navigation.PushAsync(new ItemDetailPage(new BookDetailViewModel(item)));
 
             // Manually deselect item
             ItemsListView.SelectedItem = null;

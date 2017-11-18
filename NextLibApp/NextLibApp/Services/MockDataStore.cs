@@ -6,61 +6,58 @@ using System.Threading.Tasks;
 [assembly:Xamarin.Forms.Dependency(typeof(NextLibApp.MockDataStore))]
 namespace NextLibApp
 {
-    public class MockDataStore : IDataStore<Item>
+    public class MockDataStore : IDataStore<Book>
     {
-        List<Item> items;
+        List<Book> Books;
 
         public MockDataStore()
         {
-            items = new List<Item>();
-            var mockItems = new List<Item>
+            Books = new List<Book>();
+            var mockBooks = new List<Book>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." },
+                new Book { Id = Guid.NewGuid().ToString(), Title = "First Book", Description="This is an Book description." },
+                new Book { Id = Guid.NewGuid().ToString(), Title = "Second Book", Description="This is an Book description." },
+                new Book { Id = Guid.NewGuid().ToString(), Title = "Third Book", Description="This is an Book description." },
             };
 
-            foreach (var item in mockItems)
+            foreach (var Book in mockBooks)
             {
-                items.Add(item);
+                Books.Add(Book);
             }
         }
 
-        public async Task<bool> AddItemAsync(Item item)
+        public async Task<bool> AddBookAsync(Book Book)
         {
-            items.Add(item);
+            Books.Add(Book);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> UpdateItemAsync(Item item)
+        public async Task<bool> UpdateBookAsync(Book Book)
         {
-            var _item = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
-            items.Remove(_item);
-            items.Add(item);
+            var _Book = Books.Where((Book arg) => arg.Id == Book.Id).FirstOrDefault();
+            Books.Remove(_Book);
+            Books.Add(Book);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteBookAsync(string id)
         {
-            var _item = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
-            items.Remove(_item);
+            var _Book = Books.Where((Book arg) => arg.Id == id).FirstOrDefault();
+            Books.Remove(_Book);
 
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Book> GetBookAsync(string id)
         {
-            return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
+            return await Task.FromResult(Books.FirstOrDefault(s => s.Id == id));
         }
 
-        public async Task<IEnumerable<Item>> GetItemsAsync(bool forceRefresh = false)
+        public async Task<IEnumerable<Book>> GetBooksAsync(bool forceRefresh = false)
         {
-            return await Task.FromResult(items);
+            return await Task.FromResult(Books);
         }
     }
 }

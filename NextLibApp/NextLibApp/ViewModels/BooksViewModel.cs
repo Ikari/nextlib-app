@@ -2,27 +2,26 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 
 namespace NextLibApp
 {
-    public class ItemsViewModel : BaseViewModel
+    public class BooksViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Book> Items { get; set; }
         public Command LoadItemsCommand { get; set; }
 
-        public ItemsViewModel()
+        public BooksViewModel()
         {
             Title = "Browse";
-            Items = new ObservableCollection<Item>();
+            Items = new ObservableCollection<Book>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
+            MessagingCenter.Subscribe<NewItemPage, Book>(this, "AddItem", async (obj, item) =>
             {
-                var _item = item as Item;
+                var _item = item as Book;
                 Items.Add(_item);
-                await DataStore.AddItemAsync(_item);
+                await DataStore.AddBookAsync(_item);
             });
         }
 
@@ -36,7 +35,7 @@ namespace NextLibApp
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
+                var items = await DataStore.GetBooksAsync(true);
                 foreach (var item in items)
                 {
                     Items.Add(item);

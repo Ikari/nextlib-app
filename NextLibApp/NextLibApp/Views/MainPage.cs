@@ -15,12 +15,12 @@ namespace NextLibApp
                 case Device.iOS:
                     itemsPage = new NavigationPage(new ItemsPage())
                     {
-                        Title = "Browse"
+                        Title = "Livraria NEXT"
                     };
 
                     aboutPage = new NavigationPage(new AboutPage())
                     {
-                        Title = "About"
+                        Title = "Sobre"
                     };
                     itemsPage.Icon = "tab_feed.png";
                     aboutPage.Icon = "tab_about.png";
@@ -28,12 +28,12 @@ namespace NextLibApp
                 default:
                     itemsPage = new ItemsPage()
                     {
-                        Title = "Browse"
+                        Title = "Livraria NEXT"
                     };
 
                     aboutPage = new AboutPage()
                     {
-                        Title = "About"
+                        Title = "Sobre"
                     };
                     break;
             }

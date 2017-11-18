@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Xamarin.Forms;
 
@@ -7,16 +6,16 @@ namespace NextLibApp
 {
     public partial class NewItemPage : ContentPage
     {
-        public Item Item { get; set; }
+        public Book Book { get; set; }
 
         public NewItemPage()
         {
             InitializeComponent();
 
-            Item = new Item
+            Book = new Book
             {
-                Text = "Item name",
-                Description = "This is an item description."
+                Title = "Título do novo livro",
+                Description = "Breve descrição do livro."
             };
 
             BindingContext = this;
@@ -24,7 +23,7 @@ namespace NextLibApp
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
+            MessagingCenter.Send(this, "AddItem", Book);
             await Navigation.PopToRootAsync();
         }
     }

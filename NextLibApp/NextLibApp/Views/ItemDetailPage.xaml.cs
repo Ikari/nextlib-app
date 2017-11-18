@@ -1,29 +1,27 @@
-﻿using System;
-
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace NextLibApp
 {
     public partial class ItemDetailPage : ContentPage
     {
-        ItemDetailViewModel viewModel;
+        BookDetailViewModel viewModel;
 
         // Note - The Xamarin.Forms Previewer requires a default, parameterless constructor to render a page.
         public ItemDetailPage()
         {
             InitializeComponent();
 
-            var item = new Item
+            var item = new Book
             {
-                Text = "Item 1",
-                Description = "This is an item description."
+                Title = "Book 1",
+                Description = "This is an book description."
             };
 
-            viewModel = new ItemDetailViewModel(item);
+            viewModel = new BookDetailViewModel(item);
             BindingContext = viewModel;
         }
 
-        public ItemDetailPage(ItemDetailViewModel viewModel)
+        public ItemDetailPage(BookDetailViewModel viewModel)
         {
             InitializeComponent();
 

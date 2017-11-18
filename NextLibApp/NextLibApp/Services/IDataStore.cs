@@ -5,10 +5,10 @@ namespace NextLibApp
 {
 	public interface IDataStore<T>
 	{
-		Task<bool> AddItemAsync(T item);
-		Task<bool> UpdateItemAsync(T item);
-        Task<bool> DeleteItemAsync(string id);
-		Task<T> GetItemAsync(string id);
-		Task<IEnumerable<T>> GetItemsAsync(bool forceRefresh = false);
+		Task<bool> AddBookAsync(T book);
+		Task<bool> UpdateBookAsync(T book);
+        Task<bool> DeleteBookAsync(string id);
+		Task<T> GetBookAsync(string id);
+		Task<IEnumerable<T>> GetBooksAsync(bool forceRefresh = false);
 	}
 }
