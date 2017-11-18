@@ -13,12 +13,7 @@ namespace NextLibApp
         public MockDataStore()
         {
             Books = new List<Book>();
-            var mockBooks = new List<Book>
-            {
-                new Book { Id = Guid.NewGuid().ToString(), Title = "First Book", Description="This is an Book description." },
-                new Book { Id = Guid.NewGuid().ToString(), Title = "Second Book", Description="This is an Book description." },
-                new Book { Id = Guid.NewGuid().ToString(), Title = "Third Book", Description="This is an Book description." },
-            };
+            var mockBooks = new List<Book>();
 
             foreach (var Book in mockBooks)
             {
@@ -42,7 +37,7 @@ namespace NextLibApp
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteBookAsync(string id)
+        public async Task<bool> DeleteBookAsync(int id)
         {
             var _Book = Books.Where((Book arg) => arg.Id == id).FirstOrDefault();
             Books.Remove(_Book);
@@ -50,7 +45,7 @@ namespace NextLibApp
             return await Task.FromResult(true);
         }
 
-        public async Task<Book> GetBookAsync(string id)
+        public async Task<Book> GetBookAsync(int id)
         {
             return await Task.FromResult(Books.FirstOrDefault(s => s.Id == id));
         }

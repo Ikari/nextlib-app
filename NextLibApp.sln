@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextLibApp.iOS", "NextLibAp
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		NextLibApp\NextLibApp\NextLibApp.projitems*{1f7cd5dc-962d-43d9-9e6a-d3bbcfa46c2b}*SharedItemsImports = 4
 		NextLibApp\NextLibApp\NextLibApp.projitems*{2b734d61-649c-4504-acd1-49c899602ce3}*SharedItemsImports = 4
 		NextLibApp\NextLibApp\NextLibApp.projitems*{39a6c018-af8c-4a91-9b91-e17590759177}*SharedItemsImports = 13
 	EndGlobalSection

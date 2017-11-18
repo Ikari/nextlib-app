@@ -1,8 +1,12 @@
-﻿namespace NextLibApp
+﻿using SQLite;
+
+namespace NextLibApp
 {
     public class Book
     {
-        public string Id { get; set; }
+
+        [PrimaryKey,AutoIncrement]
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
     }
