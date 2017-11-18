@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace NextLibApp.Database
 {
-    public class NextDatabase
+    public class NextDatabase : IDataStore<Book>
     {
         readonly SQLiteAsyncConnection database;
 
@@ -32,9 +32,9 @@ namespace NextLibApp.Database
             return database.InsertAsync(book);
         }
 
-        public Task<int> DeleteBookAsync(Book book)
+        public Task<int> DeleteBookAsync(int id)
         {
-            return database.DeleteAsync(book);
+            return database.DeleteAsync(database.FindAsync<Book>(id));
         }
     }
 }

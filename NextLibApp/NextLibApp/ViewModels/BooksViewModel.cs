@@ -21,7 +21,7 @@ namespace NextLibApp
             {
                 var _item = item as Book;
                 Items.Add(_item);
-                await DataStore.AddBookAsync(_item);
+                await DataStore.SaveBookAsync(_item);
             });
         }
 
@@ -35,7 +35,7 @@ namespace NextLibApp
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetBooksAsync(true);
+                var items = await DataStore.GetBooksAsync();
                 foreach (var item in items)
                 {
                     Items.Add(item);

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using NextLibApp.Droid;
+using System;
 using System.IO;
+using Xamarin.Forms;
 
+[assembly: Dependency(typeof(FileHelper))]
 namespace NextLibApp.Droid
 {
     public class FileHelper : IFileHelper

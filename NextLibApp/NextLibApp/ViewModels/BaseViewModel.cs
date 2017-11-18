@@ -9,7 +9,7 @@ namespace NextLibApp
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-        public IDataStore<Book> DataStore => DependencyService.Get<IDataStore<Book>>() ?? new MockDataStore();
+        public IDataStore<Book> DataStore => DependencyService.Get<IDataStore<Book>>() ?? App.Database;
 
         bool isBusy = false;
         public bool IsBusy
