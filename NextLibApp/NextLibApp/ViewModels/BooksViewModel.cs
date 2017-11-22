@@ -21,7 +21,7 @@ namespace NextLibApp
             {
                 var _item = item as Book;
                 Items.Add(_item);
-                await DataStore.AddBookAsync(_item);
+                await DataStore.SaveBookAsync(_item);
             });
         }
 
