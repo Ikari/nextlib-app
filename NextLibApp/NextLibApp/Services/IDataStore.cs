@@ -8,6 +8,6 @@ namespace NextLibApp
 		Task<int> SaveBookAsync(T book);
         Task<int> DeleteBookAsync(int id);
 		Task<T> GetBookAsync(int id);
-		Task<List<T>> GetBooksAsync();
+		Task<List<T>> GetBooksAsync(bool forceRefresh = false);
 	}
 }

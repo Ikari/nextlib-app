@@ -35,7 +35,7 @@ namespace NextLibApp
             try
             {
                 Items.Clear();
-                var items = await DataStore.GetBooksAsync();
+                var items = await DataStore.GetBooksAsync(true);
                 foreach (var item in items)
                 {
                     Items.Add(item);

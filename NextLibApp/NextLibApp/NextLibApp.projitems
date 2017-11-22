@@ -30,6 +30,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Database\NextDatabase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\IFileHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Book.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BooksViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BookDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Views\AboutPage.xaml.cs">
@@ -51,6 +52,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Helpers\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Services\" />
   </ItemGroup>
 </Project>

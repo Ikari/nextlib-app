@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace NextLibApp.Database
-{
+{    
     public class NextDatabase : IDataStore<Book>
     {
         readonly SQLiteAsyncConnection database;
@@ -14,27 +14,27 @@ namespace NextLibApp.Database
             database.CreateTableAsync<Book>().Wait();
         }
 
-        public Task<List<Book>> GetBooksAsync()
+        public async Task<List<Book>> GetBooksAsync(bool forceRefresh = false)
         {
-            return database.Table<Book>().ToListAsync();
+            return await database.Table<Book>().ToListAsync();
         }
 
-        public Task<Book> GetBookAsync(int id)
+        public async Task<Book> GetBookAsync(int id)
         {
-            return database.FindAsync<Book>(id);
+            return await database.FindAsync<Book>(id);
         }
 
-        public Task<int> SaveBookAsync(Book book)
+        public async Task<int> SaveBookAsync(Book book)
         {
             if (book.Id != 0)
-                return database.UpdateAsync(book);
+                return await database.UpdateAsync(book);
 
-            return database.InsertAsync(book);
+            return await database.InsertAsync(book);
         }
 
-        public Task<int> DeleteBookAsync(int id)
+        public async Task<int> DeleteBookAsync(int id)
         {
-            return database.DeleteAsync(database.FindAsync<Book>(id));
+            return await database.DeleteAsync(database.FindAsync<Book>(id));
         }
     }
 }
